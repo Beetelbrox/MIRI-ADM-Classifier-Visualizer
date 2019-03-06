@@ -1,5 +1,5 @@
-import Tkinter
-import tkMessageBox
+import tkinter
+import tkinter.messagebox
 import ClassifiersManager as classifiers
 from MyCanvas import *
 from Inputs import *
@@ -14,25 +14,25 @@ class GUI():
     def __init__(self):
         self.currentValues = Values()
         # create the root window
-        root = Tkinter.Tk()
+        root = tkinter.Tk()
 
         # modify the window
         root.title("ADM - Essay 4 - By Marti Cardoso")
         root.geometry("1000x600")
 
-        canvasFrame = Tkinter.Frame(root, highlightbackground="black", highlightcolor="red", highlightthickness=1, width=500, height=500, bd= 0)
+        canvasFrame = tkinter.Frame(root, highlightbackground="black", highlightcolor="red", highlightthickness=1, width=500, height=500, bd= 0)
  
         self.canvasWidth = 500
-        canvasFrame.pack(side = Tkinter.RIGHT, fill=Tkinter.NONE)
+        canvasFrame.pack(side = tkinter.RIGHT, fill=tkinter.NONE)
         self.canvas = MyCanvas(canvasFrame, self.currentValues, self.canvasWidth,self.canvasWidth)
         
-        inputsFrame = Tkinter.Frame(root, highlightbackground="gray",highlightthickness=1)
-        inputsFrame.pack(side = Tkinter.LEFT, fill=Tkinter.BOTH)
+        inputsFrame = tkinter.Frame(root, highlightbackground="gray",highlightthickness=1)
+        inputsFrame.pack(side = tkinter.LEFT, fill=tkinter.BOTH)
         self.inputs = Inputs(self, inputsFrame)
 
 
-        resultsFrame = Tkinter.Frame(root, highlightbackground="gray",highlightthickness=1)
-        resultsFrame.pack(side = Tkinter.LEFT, fill=Tkinter.BOTH)
+        resultsFrame = tkinter.Frame(root, highlightbackground="gray",highlightthickness=1)
+        resultsFrame.pack(side = tkinter.LEFT, fill=tkinter.BOTH)
         self.resultsLayer = ResultsLayer(self, resultsFrame)
 
         # Start the window's event-loop

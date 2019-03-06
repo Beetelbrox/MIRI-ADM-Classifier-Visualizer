@@ -1,5 +1,5 @@
-import Tkinter
-import tkMessageBox
+import tkinter
+import tkinter.messagebox
 import GUI as appGui
 
 # Create the GUI

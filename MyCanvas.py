@@ -1,5 +1,5 @@
-import Tkinter
-import tkMessageBox
+import tkinter
+import tkinter.messagebox
 import random
 from Grid import *
 
@@ -10,7 +10,7 @@ class MyCanvas():
         self.currentValues = currentValues
         self.width = width
         self.height = height
-        self.canvas = Tkinter.Canvas(frame, width=width, height=height)
+        self.canvas = tkinter.Canvas(frame, width=width, height=height)
         self.canvas.bind("<Button-1>",  self.leftclickcallback)
         self.canvas.bind("<Button-3>", self.rightclickcallback)
         self.canvas.pack()
