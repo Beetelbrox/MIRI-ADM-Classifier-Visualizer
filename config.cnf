@@ -1,0 +1,3 @@
+displaywidth: 800
+# Classifier list:
+classifiers: knn, Naive Bayes, Decision tree, AdaBoost, Random Forest,SVM (linear kernel), SVM (rbf kernel), MLP
