@@ -1,21 +1,22 @@
-import tkinter
-import tkinter.messagebox
+import tkinter as tk
+from tkinter import messagebox
 import random
 from Grid import *
 
-# Canvas of the windows (2D plane) 
-class MyCanvas():
+# Canvas of the windows (2D plane)
+# Modified MyCanvas to subclass tk.Canvas rather than being a wrapper
+class MyCanvas(tk.Canvas):
 
-    def __init__(self, frame, currentValues, width, height):
+    def __init__(self, master, w, h):
+        super.__init__(master, width=w, height=h)
+        self.master = master
+        self.pack()
         self.currentValues = currentValues
-        self.width = width
-        self.height = height
-        self.canvas = tkinter.Canvas(frame, width=width, height=height)
-        self.canvas.bind("<Button-1>",  self.leftclickcallback)
-        self.canvas.bind("<Button-3>", self.rightclickcallback)
+        self.bind("<Button-1>",  self.leftclickcallback)
+        self.bind("<Button-3>", self.rightclickcallback)
         self.canvas.pack()
         self.grid = Grid(50,50, width, height)
-        
+
 
 
     def rightclickcallback(self, event):
@@ -37,7 +38,7 @@ class MyCanvas():
         for p in testSample:
             self.currentValues.points[p][3] = True
         self.render()
-    
+
     def clear(self):
         self.currentValues.points = []
         self.canvas.delete("all")
@@ -47,7 +48,7 @@ class MyCanvas():
         self.renderGrid()
         for point in self.currentValues.points:
             self.renderPoint(point)
-        
+
 
     def renderPoint(self, point):
         x1, y1 = (point[0] - self.currentValues.radius), (point[1] - self.currentValues.radius)
@@ -57,8 +58,8 @@ class MyCanvas():
         else:
             self.canvas.create_oval(x1, y1, x2, y2, width = 0, fill = point[2])
 
-    
-            
+
+
     def renderGrid(self):
         for i in range(len(self.grid.coordinates)):
             color = self.grid.coordinates[i,2]
@@ -73,7 +74,7 @@ class MyCanvas():
             else:
                 colorBg = '#DDDDFF'
             self.canvas.create_rectangle(x1, y1, x2, y2, fill=colorBg,width = 0)
-    
+
     def addUniformPoints(self, x, y, color):
         xMin, xMax = max(1,x-self.currentValues.unifDistMargin), min(self.width,x+self.currentValues.unifDistMargin)
         yMin, yMax = max(1,y-self.currentValues.unifDistMargin), min(self.height,y+self.currentValues.unifDistMargin)
@@ -91,4 +92,3 @@ class MyCanvas():
             newPoint = [x1, y1,color, False]
             self.currentValues.points.append(newPoint)
             self.renderPoint(newPoint)
-
