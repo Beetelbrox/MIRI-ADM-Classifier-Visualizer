@@ -1,9 +1,0 @@
-{
-    "files.exclude": {
-        "**/.git": true,
-        "**/.gitignore": true,
-        "**/*.pyc": true,
-        "accEst.pdf": true,
-        "accEst-talk.ps": true
-      }
-}

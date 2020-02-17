@@ -1,2 +1,4 @@
 # compiled output
 *.pyc
+# vs Code config file
+.vscode/
