@@ -24,7 +24,7 @@ class GUI():
  
         self.canvasWidth = 500
         canvasFrame.pack(side = tkinter.RIGHT, fill=tkinter.NONE)
-        self.canvas = MyCanvas(canvasFrame, self.currentValues, self.canvasWidth,self.canvasWidth)
+        self.canvas = MyCanvas(canvasFrame, self.canvasWidth,self.canvasWidth)
         
         inputsFrame = tkinter.Frame(root, highlightbackground="gray",highlightthickness=1)
         inputsFrame.pack(side = tkinter.LEFT, fill=tkinter.BOTH)
